@@ -14,7 +14,7 @@ zerops:
       ports:
         - port: 3001
           httpSupport: true
-      start: cd api && node dist/index.js
+      start: node dist/index.js
       envVariables:
         DATABASE_URL: postgres://postgres:${postgres.password}@postgres:5432/incident_analyzer
         NATS_URL: nats://nats:4222
@@ -33,7 +33,7 @@ zerops:
         - worker/node_modules
     run:
       base: nodejs@22
-      start: cd worker && node dist/index.js
+      start: node dist/index.js
       envVariables:
         DATABASE_URL: postgres://postgres:${postgres.password}@postgres:5432/incident_analyzer
         NATS_URL: nats://nats:4222
@@ -47,12 +47,15 @@ zerops:
         - cd frontend && npm install && npm run build
       deployFiles:
         - frontend/dist
+        - frontend/package.json
     run:
       base: nodejs@22
       ports:
         - port: 5173
           httpSupport: true
-      start: npx serve frontend/dist -l 5173
+      prepareCommands:
+        - npm install -g serve
+      start: serve frontend/dist -l 5173
 
   # PostgreSQL (managed)
   - setup: postgres
