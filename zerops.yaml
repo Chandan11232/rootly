@@ -48,6 +48,8 @@ zerops:
       deployFiles:
         - frontend/dist
         - frontend/package.json
+      envVariables:
+        VITE_API_URL: https://api-20d-3001.ny1.zerops.app
     run:
       base: nodejs@22
       ports:
