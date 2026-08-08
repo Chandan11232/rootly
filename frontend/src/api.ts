@@ -1,4 +1,4 @@
-const API_BASE = 'https://api-20d-3001.ny1.zerops.app';
+export const API_BASE = 'https://api-20d-3001.ny1.zerops.app/api';
 
 export interface Incident {
   id: string;

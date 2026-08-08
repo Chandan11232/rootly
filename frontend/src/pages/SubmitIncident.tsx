@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { submitIncident } from '../api';
+import { submitIncident, API_BASE } from '../api';
 
 const MAX_TITLE_LENGTH = 200;
 const MAX_SERVICE_LENGTH = 100;
@@ -57,7 +57,7 @@ export default function SubmitIncident() {
       // Start polling
       pollRef.current = window.setInterval(async () => {
         try {
-          const res = await fetch(`/api/incidents/${result.id}`);
+          const res = await fetch(`${API_BASE}/incidents/${result.id}`);
           if (!res.ok) return;
           const incident = await res.json();
           if (incident.status === 'resolved' || incident.status === 'closed') {
