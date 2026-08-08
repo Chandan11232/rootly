@@ -202,12 +202,7 @@ export default function Landing() {
 
       {/* Footer */}
       <footer className="footer">
-        <p>
-          Built with ❤️ for The Zerops Challenge · Powered by{' '}
-          <a href="https://zerops.io" target="_blank" rel="noopener">Zerops</a>{' '}
-          · AI by <a href="https://groq.com" target="_blank" rel="noopener">Groq</a> &{' '}
-          <a href="https://ollama.com" target="_blank" rel="noopener">Ollama</a>
-        </p>
+        <p>Rootly</p>
       </footer>
     </div>
   );
