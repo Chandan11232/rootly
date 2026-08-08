@@ -44,10 +44,9 @@ zerops:
     build:
       base: nodejs@22
       buildCommands:
-        - cd frontend && npm install && npm run build
+        - cd frontend && npm install --include=dev && npm run build
       deployFiles:
         - frontend/dist
-        - frontend/package.json
       envVariables:
         VITE_API_URL: https://api-20d-3001.ny1.zerops.app
     run:
@@ -57,7 +56,7 @@ zerops:
           httpSupport: true
       prepareCommands:
         - npm install -g serve
-      start: serve frontend/dist -l 5173
+      start: serve frontend/dist -s -l 5173
 
   # PostgreSQL (managed)
   - setup: postgres
