@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_URL || '/api';
+const API_BASE = 'https://api-20d-3001.ny1.zerops.app';
 
 export interface Incident {
   id: string;
