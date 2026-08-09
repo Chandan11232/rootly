@@ -3,27 +3,15 @@ services:
     type: nodejs@22
     maxContainers: 1
     enableSubdomainAccess: true
-    buildFromGit: https://github.com/Chandan11232/rootly
-    envVariables:
-      DATABASE_URL: ${postgres_connectionString}
-      NATS_URL: ${nats_connectionString}
-      GROQ_API_KEY: ${GROQ_API_KEY}
-      PORT: 3001
 
   - hostname: worker
     type: nodejs@22
     maxContainers: 1
-    buildFromGit: https://github.com/Chandan11232/rootly
-    envVariables:
-      DATABASE_URL: ${postgres_connectionString}
-      NATS_URL: ${nats_connectionString}
-      GROQ_API_KEY: ${GROQ_API_KEY}
 
   - hostname: frontend
     type: nodejs@22
     maxContainers: 1
     enableSubdomainAccess: true
-    buildFromGit: https://github.com/Chandan11232/rootly
 
   - hostname: postgres
     type: postgresql:single@16

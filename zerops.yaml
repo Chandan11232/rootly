@@ -11,6 +11,8 @@ zerops:
           cp -r dist ..
           cp package.json ..
           cp -r node_modules ..
+          ls -la /build/source
+          ls -la /build/source/dist
       deployFiles:
         - dist
         - package.json
@@ -38,6 +40,8 @@ zerops:
           cp -r dist ..
           cp package.json ..
           cp -r node_modules ..
+          ls -la /build/source
+          ls -la /build/source/dist
       deployFiles:
         - dist
         - package.json
@@ -59,6 +63,8 @@ zerops:
           npm install --include=dev
           npm run build
           cp -r dist ..
+          ls -la /build/source
+          ls -la /build/source/dist
       deployFiles:
         - dist
     run:
