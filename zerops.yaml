@@ -24,7 +24,6 @@ zerops:
       envVariables:
         DATABASE_URL: ${postgres_connectionString}
         NATS_URL: ${nats_connectionString}
-        GROQ_API_KEY: ${GROQ_API_KEY}
         PORT: 3001
 
   # Worker
@@ -49,7 +48,6 @@ zerops:
       envVariables:
         DATABASE_URL: ${postgres_connectionString}
         NATS_URL: ${nats_connectionString}
-        GROQ_API_KEY: ${GROQ_API_KEY}
 
   # Frontend
   - setup: frontend
@@ -70,6 +68,9 @@ zerops:
           httpSupport: true
       prepareCommands:
         - npm install -g serve
+      initCommands:
+        - ls -la /var/www
+        - ls -la /var/www/dist 2>/dev/null || echo "dist not found"
       start: serve dist -s -l 5173
 
   # PostgreSQL (managed)
